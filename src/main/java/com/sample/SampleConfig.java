@@ -58,12 +58,9 @@ public class SampleConfig extends WebMvcConfigurerAdapter {
 
     @Bean
     public LocalSessionFactoryBean getSessionFactory() {
-//        AnnotationSessionFactoryBean sessionFactoryBean = new AnnotationSessionFactoryBean();
         LocalSessionFactoryBean sessionFactoryBean = new LocalSessionFactoryBean();
         sessionFactoryBean.setDataSource(getDataSource());
-        sessionFactoryBean.setAnnotatedClasses(com.sample.entity.Bla.class);
-//        sessionFactoryBean.setAnnotatedPackages("com.sample.entity");
-//        sessionFactoryBean.setPackagesToScan("com.sample.entity");
+        sessionFactoryBean.setPackagesToScan("com.sample.entity");
         sessionFactoryBean.setHibernateProperties(getHibernateProperties());
         return sessionFactoryBean;
     }
